@@ -21,4 +21,11 @@ body {
   font-family: "Cabin", sans-serif;
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
+  margin: 0mm;
+  padding: 0.25in;
+}
+
+@page { 
+    size: auto;
+    margin: 5mm 5mm 5mm 5mm;  
 }

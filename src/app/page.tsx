@@ -1,9 +1,14 @@
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+
 import Columns from '@/components/columns'
-import Experience from '@/components/experience'
+import Experience, { Entry } from '@/components/experience'
 import Hat from '@/components/hat'
 import Skills from '@/components/skills'
 
-export default function Home() {
+export default async function Home() {
+  const experiences = await getData()
   return (
     <main className={`
       max-w-screen-lg m-4 lg:mx-auto print:m-0
@@ -14,9 +19,25 @@ export default function Home() {
     >
       <Hat />
       <Columns>
-        <Experience />
+        <Experience entries={experiences as Entry[]} />
         <Skills />
       </Columns>
     </main>
   )
+}
+
+export async function getData() {
+  const blogDir = "./src/experiences"
+  const files = fs.readdirSync(path.join(blogDir))
+  const experiences = files.map(filename => {
+    const fileContent = fs.readFileSync(path.join(blogDir, filename), 'utf-8')
+    const { data, content } = matter(fileContent)
+    return { data, content }
+  })
+
+  return experiences.sort((a, b) => {
+    const yearA = a.data.period.split('-')[0].split('/')[1] 
+    const yearB = b.data.period.split('-')[0].split('/')[1]
+    return yearA > yearB ? -1 : 1
+  })
 }

@@ -3,7 +3,7 @@ import SectionHeader from "@/components/section-header";
 
 export default function Skills() {
   return (
-    <section className="p-2 px-4 rounded-md bg-yellow-100 w-auto lg:w-2/5 print:w-2/5 font-extralight">
+    <section className="p-2 px-4 rounded-md bg-slate-200 w-auto lg:w-2/5 print:w-2/5">
       <SectionHeader>Skills</SectionHeader>
       <SectionContent>
         <ul className="list-disc list-outside">

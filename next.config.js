@@ -16,7 +16,8 @@ const withMDX = require('@next/mdx')({
 const nextConfig = {
   // Configure pageExtensions to include md and mdx
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  output: 'export'
+  output: 'export',
+  assetsPrefix: '/oleksii-haiev-cv/'
 }
 
 // Merge MDX config with Next.js config

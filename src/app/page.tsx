@@ -26,7 +26,7 @@ export default async function Home() {
   )
 }
 
-export async function getData() {
+async function getData() {
   const blogDir = "./src/experiences"
   const files = fs.readdirSync(path.join(blogDir))
   const experiences = files.map(filename => {

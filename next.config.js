@@ -10,13 +10,13 @@ const withMDX = require('@next/mdx')({
     // If you use `MDXProvider`, uncomment the following line.
     // providerImportSource: "@mdx-js/react",
   },
-  output: 'export'
 })
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Configure pageExtensions to include md and mdx
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  output: 'export'
 }
 
 // Merge MDX config with Next.js config

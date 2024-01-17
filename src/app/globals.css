@@ -21,11 +21,23 @@ body {
   font-family: "Cabin", sans-serif;
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
-  margin: 0mm;
-  padding: 0.25in;
 }
 
-@page { 
-    size: auto;
-    margin: 5mm 5mm 5mm 5mm;  
+@media print 
+{
+    @page {
+      size: A4; /* DIN A4 standard, Europe */
+      margin: 10mm;
+    }
+    html, body {
+        width: 210mm;
+        /* height: 297mm; */
+        height: 282mm;
+        font-size: 14px;
+        background: #FFF;
+        overflow: visible;
+    }
+    body {
+        padding-top: 5mm;
+    }
 }

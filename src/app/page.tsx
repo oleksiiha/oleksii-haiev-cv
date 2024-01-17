@@ -5,7 +5,7 @@ import matter from 'gray-matter'
 import Columns from '@/components/columns'
 import Experience, { Entry } from '@/components/experience'
 import Hat from '@/components/hat'
-import Skills from '@/components/skills'
+import Skills from '@/components/skills.mdx'
 
 export default async function Home() {
   const experiences = await getData()

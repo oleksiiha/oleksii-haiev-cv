@@ -1,4 +1,3 @@
-import SectionContent from "@/components/section-content";
 import SectionHeader from "@/components/section-header";
 import { useMDXComponents } from "@/mdx-components";
 import { MapPinIcon } from "@heroicons/react/16/solid";
@@ -23,8 +22,8 @@ export default function Experience({ entries }: Props) {
   return (
     <section className="p-2 px-4 w-full print:w-3/5">
       <SectionHeader>Experience</SectionHeader>
-      {entries.map((entry, index) => (
-        <div key={index} className="my-4">
+      {entries.map((entry) => (
+        <div key={entry.data.period} className="my-4 first:mt-0">
           <div className="flex justify-between items-baseline gap-3">
             <h3 className="font-bold text-md print:text-sm">
               {entry.data.company}, {entry.data.title}
@@ -36,9 +35,9 @@ export default function Experience({ entries }: Props) {
           <h4 className="font-semibold text-md flex gap-1 items-center text-gray-600 print:text-xs">
             <MapPinIcon className="size-5 print:size-3" /> {entry.data.location}
           </h4>
-          <SectionContent>
+          <section className="text-sm print:text-xs">
             <MDXRemote source={entry.content} components={components} />
-          </SectionContent>
+          </section>
         </div>
       ))}
     </section>

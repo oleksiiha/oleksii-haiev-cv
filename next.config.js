@@ -12,12 +12,15 @@ const withMDX = require('@next/mdx')({
   },
 })
 
+const repoNameURIPrefix =
+  process.env.NODE_ENV === 'production' ? '/oleksii-haiev-cv/' : '';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Configure pageExtensions to include md and mdx
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   output: 'export',
-  assetPrefix: '/oleksii-haiev-cv/'
+  assetPrefix: repoNameURIPrefix
 }
 
 // Merge MDX config with Next.js config
